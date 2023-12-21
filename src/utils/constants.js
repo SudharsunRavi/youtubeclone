@@ -10,6 +10,8 @@ export const YT_VIDEO_API="https://youtube.googleapis.com/youtube/v3/videos?part
 
 export const YT_PARTICULAR_VIDEO="https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&key="+YT_API_KEY+"&id="
 
+export const YT_SEARCH_API="http://suggestqueries.google.com/complete/search?client=firefox&ds=yt&q="
+
 
 
 
