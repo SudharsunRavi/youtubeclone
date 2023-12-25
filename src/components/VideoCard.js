@@ -9,13 +9,13 @@ const VideoCard = ({info}) => {
     const {viewCount}=statistics
 
   return (
-    <div className='ml-5 my-4 w-80 shadow-lg'>
+    <div className='ml-5 my-4 w-[340px] h-[300px]'>
         <div>
             <img src={thumbnails.medium.url} alt="thumbanil" className='rounded-xl'/>
         </div>
         
         <div className='ml-2'>
-            <h4 className='font-bold mt-2'>{title}</h4>
+            <h4 className='font-semibold mt-2'>{title}</h4>
             <p className='text-gray-500'>{channelTitle}</p>
             <p className='text-gray-500'>{viewCount}</p>
         </div>
