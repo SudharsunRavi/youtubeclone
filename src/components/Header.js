@@ -41,7 +41,7 @@ const Header = () => {
   return (
     <div className='flex justify-between shadow-lg'>
         <div className='flex col-span-1'>
-            <img src={MENU_IMG} alt="menu-icon" className='w-8 h-8 mx-4 my-7 cursor-pointer'onClick={handleMenu} />  
+            <img src={MENU_IMG} alt="menu-icon" className='w-8 h-8 mx-4 my-7 cursor-pointer' onClick={handleMenu} /> 
             <img src={YT_LOGO} alt="yt-logo" className='w-[160px] h-[90px]' />
         </div>
 
