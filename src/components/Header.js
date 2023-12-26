@@ -1,12 +1,15 @@
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { MENU_IMG, USER_ICON, YT_LOGO, YT_SEARCH_API } from '../utils/constants'
 import { toggleMenu } from '../utils/redux/appSlice'
 import { useEffect, useState } from 'react'
+import { searchCache } from '../utils/redux/searchSlice'
 
 const Header = () => {
   const [searchSuggestion,setSearchSuggetion]=useState('')
   const [suggestions,setSuggestions]=useState([])
   const [showSuggestions,setShowSuggestions]=useState(false)
+
+  const cache=useSelector(store=>store.cache)
 
   const dispatch=useDispatch()
 
@@ -19,10 +22,18 @@ const Header = () => {
     const jsonData=await data.json()
     //console.log(jsonData[1])
     setSuggestions(jsonData[1])
+    dispatch(searchCache({[searchSuggestion]:jsonData[1]}))
   }
 
   useEffect(()=>{
-    const timer=setTimeout(()=>getSuggestions(),200)
+    const timer=setTimeout(()=>{
+      if(cache[searchSuggestion]){
+        setSuggestions(cache[searchSuggestion])
+      }
+      else{
+        getSuggestions()
+      }
+    },200)
 
     return ()=>clearTimeout(timer)
   }, [searchSuggestion])

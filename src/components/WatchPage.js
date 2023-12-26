@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { closeMenu } from '../utils/redux/appSlice'
 import { useSearchParams } from 'react-router-dom'
 import { YT_API_KEY } from '../utils/constants'
+import CommentsContainer from './commentsContainer'
 
 const WatchPage = () => {
     const [videoData, setVideoData] = useState([])
@@ -24,7 +25,7 @@ const WatchPage = () => {
         particularVideoData()
     },[])
 
-    console.log(videoData[0])
+    //console.log(videoData[0])
     if (!videoData[0]) return null
     const{statistics, snippet}=videoData[0]
     const {title, channelTitle, thumbnails}=snippet
@@ -46,6 +47,10 @@ const WatchPage = () => {
 
         <div>
             <h1>{title}</h1>
+        </div>
+
+        <div>
+            <CommentsContainer/>
         </div>
         
     </div>
