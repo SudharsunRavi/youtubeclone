@@ -4,6 +4,7 @@ import { closeMenu } from '../utils/redux/appSlice'
 import { useSearchParams } from 'react-router-dom'
 import { YT_API_KEY } from '../utils/constants'
 import CommentsContainer from './commentsContainer'
+import LiveChat from './LiveChat'
 
 const WatchPage = () => {
     const [videoData, setVideoData] = useState([])
@@ -32,17 +33,24 @@ const WatchPage = () => {
     const {viewCount}=statistics
 
   return (
-    <div className='ml-16 mt-16'>
-        <div>
-            <iframe
-                className='rounded-xl shadow-lg'
-                width="900" 
-                height="475" 
-                src={"https://www.youtube.com/embed/"+videoId.get('v')} 
-                title="YouTube video player" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                allowFullScreen
-            />
+    <div className='ml-16 mt-16 w-full'>
+        <div className='flex w-full'>
+            <div>
+                <iframe
+                    className='rounded-xl shadow-lg'
+                    width="900" 
+                    height="475" 
+                    src={"https://www.youtube.com/embed/"+videoId.get('v')} 
+                    title="YouTube video player" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowFullScreen
+                />
+            </div>
+
+            <div className='w-full'>
+                <LiveChat/>
+            </div>
+            
         </div>
 
         <div>
